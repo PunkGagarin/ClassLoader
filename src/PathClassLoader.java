@@ -6,7 +6,6 @@ public class PathClassLoader extends ClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        //допилить
         byte[] bytes;
         String fileName = null;
         Class<?> cl = null;
@@ -20,11 +19,11 @@ public class PathClassLoader extends ClassLoader {
             e.printStackTrace();
         }
 
+        //считываем массив байт из файла и передаем методу defineClass
         try(FileInputStream fis = new FileInputStream(fileName)){
             bytes = new byte[fis.available()];
-            int count = fis.read(bytes);
+            fis.read(bytes,0,bytes.length);
             cl = defineClass(name, bytes, 0, bytes.length);
-            return cl;
         }
         catch (IOException e){
             e.printStackTrace();
