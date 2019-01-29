@@ -10,7 +10,7 @@ public class PathClassLoader extends ClassLoader {
         String fileName = null;
         Class<?> cl = null;
 
-        System.out.println("Введите путь к файлу");
+        System.out.println("Введите путь к файлу:");
 
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             fileName = reader.readLine();
